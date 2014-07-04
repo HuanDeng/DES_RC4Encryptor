@@ -22,7 +22,7 @@ namespace Dongle
         EncryptSystem es = new EncryptSystem();
         private void encrypt_b_Click(object sender, EventArgs e)
         {
-            openFileDialog.Title = "Please select a .txt file";
+            openFileDialog.Title = "Please select a file";
             //openFileDialog.Filter = "txt(*.txt)|*.txt";
             //openFileDialog.FileName = "Json";
             if (openFileDialog.ShowDialog() == DialogResult.OK) 
@@ -36,9 +36,7 @@ namespace Dongle
         }
         private void decrypt_b_Click(object sender, EventArgs e)
         {
-            openFileDialog.Title = "Please select a .fir file";
-            openFileDialog.Filter = "fir(*.fir)|*.fir";
-            openFileDialog.FileName = "fir";
+            openFileDialog.Title = "Please select a file";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                // byte[] fileByte = File.ReadAllBytes(openFileDialog.FileName);
@@ -60,7 +58,12 @@ namespace Dongle
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Key = textBox1.Text;
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Key = textBox1.Text;
         }
 
     }
